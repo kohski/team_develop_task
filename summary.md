@@ -11,10 +11,15 @@
 - Teamの登録機能
 - dashboard
 ### どんな機能か
-- User登録する
 - UserとTeamは多対多の関係
 - TeamはUserからownerの指定必須。iconとnameカラムあり
 - AgendaはTeamとUserの中間テーブル。descriptionとtitle設定可。
 - AssignはTeamとUserの中間テーブル。独自カラムなし。
 - ArticleはAgendaとTeamの中間テーブル。content/ image / titleが独自カラム
 - CommentはArticleとUserの中間テーブル。contentが独自カラム
+
+1.login画面
+2.トップページ
+3.dashboard
+4.チーム作成
+5.チーム確認

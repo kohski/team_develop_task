@@ -12,10 +12,9 @@ class AssignsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy    
     assign = Assign.find(params[:id])
     destroy_message = assign_destroy(assign, assign.user)
-
     redirect_to team_url(params[:team_id]), notice: destroy_message
   end
 
@@ -30,6 +29,8 @@ class AssignsController < ApplicationController
       'リーダーは削除できません。'
     elsif Assign.where(user_id: assigned_user.id).count == 1
       'このユーザーはこのチームにしか所属していないため、削除できません。'
+    elsif assigned_user.id != current_user.id && assign.team.owner_id != current_user.id
+      'オーナーか本人しか削除できません'
     elsif assign.destroy
       set_next_team(assign, assigned_user)
       'メンバーを削除しました。'
