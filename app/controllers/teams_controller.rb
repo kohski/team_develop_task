@@ -56,6 +56,9 @@ class TeamsController < ApplicationController
     user_id = Assign.find(params[:assign]).user_id
     team.owner_id = user_id
     team.save
+
+    email = Assign.find(params[:assign]).user.email
+    TranseferMailer.transfer_mail(email, team.name).deliver
     redirect_to team_path(team), notice: 'リーダーを変更しました'
   end
 
