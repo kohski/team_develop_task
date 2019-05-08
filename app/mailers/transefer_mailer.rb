@@ -4,6 +4,6 @@ class TranseferMailer < ApplicationMailer
   def transfer_mail(email, team)
     @email = email
     @team = team
-    mail to: @email, subject: '登録完了'
+    mail to: @email, subject: 'チームオーナーが変更されました'
   end
 end
